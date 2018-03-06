@@ -19,6 +19,9 @@ int main() {
         students.push_back(record);
     }
 
+    // sort
+    std::sort(students.begin(), students.end(), compare);
+
 
     return 0;
 }
