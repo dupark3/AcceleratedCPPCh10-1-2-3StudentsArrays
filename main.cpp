@@ -7,14 +7,14 @@
 #include "Student_info.h"
 
 int main() {
-    std::cout << "Enter each student's name, midterm grade, final grade, and homework grades: " << std::endl;
+    std::cout << "Enter each student's name, midterm grade, and final grade: " << std::endl;
     Student_info record;
     std::vector<Student_info> students;
     std::string s;
     size_t maxLen = 0;
 
     // read and store
-    while(record.read(std::cout)){
+    while(record.read(std::cin)){
         maxLen = std::max(maxLen, record.name().size());
         students.push_back(record);
     }

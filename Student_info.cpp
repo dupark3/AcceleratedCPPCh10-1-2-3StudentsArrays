@@ -1,11 +1,19 @@
 #include <iostream>
 #include <string>
+
+#include "Student_info.h"
+
 Student_info::Student_info() : midterm(0), final(0), finalGrade(0) { };
-Student_info::Student_info(std::istream& is) : { ::read(is); };
+Student_info::Student_info(std::istream& is) { read(is); };
 
 std::istream& Student_info::read(std::istream& is){
-    is >> n >> midterm >> final;
-    finalGrade = midterm * 0.4 + final * 0.6;
+    if (is){
+        is >> n >> midterm >> final;
+        finalGrade = midterm * 0.4 + final * 0.6;
+    }
+
+    is.clear();
+    return is;
 }
 
 std::string Student_info::letterGrade() {
