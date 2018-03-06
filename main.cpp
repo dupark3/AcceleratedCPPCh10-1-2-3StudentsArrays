@@ -22,6 +22,11 @@ int main() {
     // sort
     std::sort(students.begin(), students.end(), compare);
 
+    // output
+    for (size_t i; i != students.size(); ++i){
+        std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ')
+                  << students[i].letterGrade() << std::endl;
+    }
 
     return 0;
 }
