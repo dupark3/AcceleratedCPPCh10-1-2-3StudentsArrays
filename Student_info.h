@@ -16,7 +16,6 @@ private:
     std::string n;
     double midterm;
     double final;
-    std::vector<double> homework;
     double finalGrade;
 };
 
