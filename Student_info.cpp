@@ -1,3 +1,4 @@
+#include <algorithm> // sort
 #include <iostream>
 #include <cstdio> // EOF
 #include <string>
@@ -35,6 +36,16 @@ bool compare(const Student_info& x, const Student_info& y){
 }
 
 template <class inputIter, class T>
-void median(inputIter first, inputIter second, T& ret){
-    
+T median(inputIter first, inputIter last){
+    std::vector<T> temp;
+    while(first != last){
+        temp.push_back(*first++);
+    }
+    std::sort(temp.begin(), temp.end());
+
+    size_t size = temp.size();
+    T mid = size / 2;
+    size % 2 == 0 ? mid = (temp[mid - 1] + temp[mid]) / 2 : mid = temp[mid];
+
+    return mid;
 }
