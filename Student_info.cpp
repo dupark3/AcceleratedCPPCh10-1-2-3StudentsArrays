@@ -9,10 +9,11 @@ Student_info::Student_info() : midterm(0), final(0), finalGrade(0) { };
 Student_info::Student_info(std::istream& is) { read(is); };
 
 std::istream& Student_info::read(std::istream& in) {
-    if (in){
-        in >> n >> midterm >> final;
-        finalGrade = midterm * 0.4 + final * 0.6;
-    }
+    in >> n >> midterm >> final;
+    ::read_hw(in, homework);
+    double hw_median;
+    finalGrade = midterm * 0.2 + final * 0.4 + ::median(homework.begin(), homework.end(), hw_median) * 0.4;
+
     return in;
 }
 
@@ -35,17 +36,4 @@ bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
 }
 
-template <class inputIter, class T>
-T median(inputIter first, inputIter last){
-    std::vector<T> temp;
-    while(first != last){
-        temp.push_back(*first++);
-    }
-    std::sort(temp.begin(), temp.end());
 
-    size_t size = temp.size();
-    T mid = size / 2;
-    size % 2 == 0 ? mid = (temp[mid - 1] + temp[mid]) / 2 : mid = temp[mid];
-
-    return mid;
-}
