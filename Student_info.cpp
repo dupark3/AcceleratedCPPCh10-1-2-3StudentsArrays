@@ -11,8 +11,9 @@ Student_info::Student_info(std::istream& is) { read(is); };
 std::istream& Student_info::read(std::istream& in) {
     in >> n >> midterm >> final;
     ::read_hw(in, homework);
-    double hw_median;
-    finalGrade = midterm * 0.2 + final * 0.4 + ::median(homework.begin(), homework.end(), hw_median) * 0.4;
+    double hw_median = 0;
+    ::median(homework.begin(), homework.end(), hw_median);
+    finalGrade = (midterm * 0.2) + (final * 0.4) + (hw_median * 0.4);
 
     return in;
 }

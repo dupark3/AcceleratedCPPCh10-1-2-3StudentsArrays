@@ -35,7 +35,7 @@ std::istream& read_hw(std::istream& is, container& c){
 };
 
 template <class inputIter, class T>
-T median(inputIter first, inputIter last, T init){
+void median(inputIter first, inputIter last, T& init){
     // in order to find the median, we need to sort, but we don't want to change the container itself, so we copy the elements and then sort
     std::vector<T> temp;
     while(first != last){
@@ -44,12 +44,10 @@ T median(inputIter first, inputIter last, T init){
     }
     std::sort(temp.begin(), temp.end());
 
-    // if even numbered, find the average of the middle two. If odd numbered, the median is the middle element. 
+    // if even numbered, find the average of the middle two. If odd numbered, the median is the middle element.
     size_t size = temp.size();
     size_t mid = size / 2;
-    size % 2 == 0 ? init = (temp[mid - 1] + temp[mid]) / 2 : mid = temp[mid];
-
-    return init;
+    size % 2 == 0 ? init = (temp[mid - 1] + temp[mid]) / 2 : init = temp[mid];
 };
 
 bool compare(const Student_info&, const Student_info&);
