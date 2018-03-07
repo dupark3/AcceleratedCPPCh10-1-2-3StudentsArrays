@@ -1,7 +1,7 @@
 /*
-Exercise 10-1 Rewrite the student-grading program from page 166 to generate letter grades. 
+Exercise 10-1 Rewrite the student-grading program from page 166 to generate letter grades.
 
-Exercise 10-2 Rewirte the median function from page 140 so that we can call it witheither a vector or a built-in array. The function should allow contaiers or any arithmetic type. 
+Exercise 10-2 Rewirte the median function from page 140 so that we can call it witheither a vector or a built-in array. The function should allow contaiers or any arithmetic type.
 
 */
 
@@ -33,6 +33,12 @@ int main() {
         std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ')
                   << students[i].letterGrade() << std::endl;
     }
+
+    // testing if the median function can take an array instead of a vector
+    int integers[] = {12, 5, 6, 10, 10, 3}; // median = 8
+    int middle = 0;
+    median(integers, integers + sizeof(integers) / sizeof(*integers), middle);
+    std::cout << "Array's median: " << middle << std::endl;
 
     return 0;
 }
