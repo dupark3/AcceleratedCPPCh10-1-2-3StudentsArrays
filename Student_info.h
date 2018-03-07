@@ -22,4 +22,7 @@ private:
 
 bool compare(const Student_info&, const Student_info&);
 
+template <class inputIter, class T>
+void median(inputIter, inputIter, T&);
+
 #endif // GUARD_student_info_h

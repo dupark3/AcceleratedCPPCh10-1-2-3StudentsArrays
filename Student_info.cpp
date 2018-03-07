@@ -33,3 +33,8 @@ std::string Student_info::letterGrade() const{
 bool compare(const Student_info& x, const Student_info& y){
     return x.name() < y.name();
 }
+
+template <class inputIter, class T>
+void median(inputIter first, inputIter second, T& ret){
+    
+}
