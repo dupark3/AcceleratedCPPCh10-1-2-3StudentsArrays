@@ -11,7 +11,7 @@ public:
     Student_info(std::istream&); // constructor with argument
     std::istream& read(std::istream&);
     std::string name() const { return n; }; // accessor
-    std::string letterGrade();
+    std::string letterGrade() const; // accessor
 
 private:
     std::string n;
@@ -19,7 +19,6 @@ private:
     double final;
     double finalGrade;
 };
-
 
 bool compare(const Student_info&, const Student_info&);
 
