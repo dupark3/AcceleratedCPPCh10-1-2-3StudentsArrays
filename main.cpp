@@ -10,7 +10,6 @@ int main() {
     std::cout << "Enter each student's name, midterm grade, and final grade: " << std::endl;
     Student_info record;
     std::vector<Student_info> students;
-    std::string s;
     size_t maxLen = 0;
 
     // read and store
@@ -23,7 +22,7 @@ int main() {
     std::sort(students.begin(), students.end(), compare);
 
     // output
-    for (size_t i; i != students.size(); ++i){
+    for (size_t i = 0; i != students.size(); ++i){
         std::cout << students[i].name() << std::string(maxLen + 1 - students[i].name().size(), ' ')
                   << students[i].letterGrade() << std::endl;
     }
