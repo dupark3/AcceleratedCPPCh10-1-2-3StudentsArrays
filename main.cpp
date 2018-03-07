@@ -3,6 +3,8 @@ Exercise 10-1 Rewrite the student-grading program from page 166 to generate lett
 
 Exercise 10-2 Rewirte the median function from page 140 so that we can call it witheither a vector or a built-in array. The function should allow contaiers or any arithmetic type.
 
+Exercise 10-3 Write a test program to verify that the median function operates correctly. Ensure that calling median does not change the order of the lements in the container. 
+
 */
 
 #include <algorithm> // sort, max
@@ -37,7 +39,7 @@ int main() {
     // testing if the median function can take an array instead of a vector
     int integers[] = {12, 5, 6, 10, 10, 3}; // median = 8
     int middle = 0;
-    median(integers, integers + sizeof(integers) / sizeof(*integers), middle);
+    median(integers, integers + sizeof(integers) / sizeof(*integers), middle); // second iterator is the first iterator + size of array
     std::cout << "Array's median: " << middle << std::endl;
 
     return 0;
